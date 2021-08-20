@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home</title>
+	<!-- <link rel="stylesheet" type="text/css" href="../static/css/styles.css"> -->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+	<style>
+
+		.container{
+			margin-left:480px;
+			margin-top:80px;
+		}
+		.form-container{
+		  margin-left:500px;
+		  margin-top:50px;
+
+		}
+		.scoreReciver{
+		  margin-bottom:20px;
+
+		 }
+		 .btn-predict{
+		  background-color: #008CBA;
+		  border: none;
+		  color: white;
+		  padding: 13px 32px;
+		  text-align: center;
+		  text-decoration: none;
+		  display: inline-block;
+		  font-size: 16px;
+		  cursor: pointer;
+		  width: 30%;
+
+		 }
+		 .input-style{
+		  padding: 12px;
+		  border: 1px solid #ccc;
+		  border-radius: 3px;
+		  margin-bottom: 10px;
+		  margin-top:10px;
+		  width: 30%;
+		  box-sizing: border-box;
+		  font-family: montserrat;
+		  color: #2C3E50;
+		  font-size: 18px;
+
+		 }
+		 .label-style{
+		  margin-bottom:30px;
+		  font-size:18px;
+		 }
+		 .result-contaier{
+
+		  margin-top:60px
+		 }
+
+
+
+	</style>
+</head>
+<body>
+
+	<header>
+		<div class="container">
+			<h2>Student Final Test Score Predictor</h2>
+		</div>
+	</header>
+
+	<div class="form-container">
+		<form action="{{ url_for('predict')}}" method="POST">
+		<div class = "scoreReciver"	>
+			<label class="label-style">Test 1 Score : </label><br>
+			<input type = "text" name= "test1"  class="input-style"  placeholder="Enter test 1 score"/> <br>
+
+		</div>
+		<div class = "scoreReciver"	>
+			<label class="label-style">Test 2 Score :</label><br>
+			<input type = "text" name = "test2" class="input-style" placeholder="Enter test 2 score" /> <br>
+
+		</div>
+
+
+		<input type="submit" class="btn-predict" value="Predict">
+
+
+
+
+	</form>
+
+	<div class="result-contaier">
+		<p style="font-size:18px;font-weight:'bold'">Predicted Final Test Score :</p>
+		<p style="font-size:19px">{{prediction}}</p>
+	</div>
+
+
+	</div>
+
+
+
+
+</body>
+</html>
